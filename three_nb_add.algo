@@ -1,0 +1,27 @@
+
+ALGORITHM text_analyze
+VAR
+    c : CHAR := ''; // Variable to store each character read from input
+    nb_char : INTEGER := 0; // Counter for the total number of characters in the sentence
+    nb_word : INTEGER := 0;// Counter for the number of words in the sentence
+
+    nb_vow : INTEGER := 0;// Counter for the number of vowels in the sentence
+BEGIN
+    WHILE (c <> '.') DO
+        Read(c);
+        nb_char := nb_char +1;
+        IF (c = 'a' OR c='e' OR c='i' OR c='o' OR c='u' OR c='y') THEN
+            nb_vow := nb_vow +1;// Increment vowel count if the character is a vowel (including both lowercase and uppercase)
+        END_IF
+
+        IF (c=' ') THEN
+            nb_word := nb_word +1;// Increment word count when a space is encountered, assuming it's not the first character (to avoid counting leading spaces)
+        END_IF
+
+    END_WHILE
+
+    Write("The length of the sentence is ",nb_char); // Output the total length of the sentence
+    Write("The number of words in the sentence is ", nb_word + 1);  // Output the number of words in the sentence (adding 1 to account for the last word after the period)
+
+    Write("he number of vowels in the sentence. is ",nb_vow);// Output the number of vowels in the sentence
+END
